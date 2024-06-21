@@ -1,7 +1,8 @@
-import { Form, Formik } from "formik";
+import { Formik } from "formik";
 import * as Yup from "yup";
 import "../styles/Auth.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 let initialValues = {
     password: "",
@@ -22,6 +23,7 @@ const submitForm = () => {
 };
 
 const Login = () => {
+    const navigate = useNavigate();
     const [clicked, setClicked] = useState({
         email: false,
         password: false,
@@ -31,7 +33,12 @@ const Login = () => {
         <div className="auth">
             <div className="auth_wrapper">
                 <div className="auth_form_head">
-                    <span className="auth_action">Register</span>
+                    <span
+                        onClick={() => navigate("/register")}
+                        className="auth_action"
+                    >
+                        Register
+                    </span>
                     <span className="auth_action auth_active">Login</span>
                     <span className="auth_close_icon">
                         <svg

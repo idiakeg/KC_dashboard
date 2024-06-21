@@ -19,6 +19,10 @@
     font-weight: 400;
 }
 
+.auth_wrapper.register {
+    padding-bottom: 1.5rem;
+}
+
 /* ========= Auth form head ======= */
 .auth_form_head {
     /* border: 1px solid red; */
@@ -125,6 +129,9 @@
     top: 50%;
     left: 1rem;
     transform: translateY(-50%);
+    /* z-index: -9; */
+    pointer-events: none;
+    transition: all 0.15s ease-in-out;
 }
 
 .auth_input_field input.touched {
@@ -147,6 +154,18 @@
     transform: translateY(-50%);
     right: 0.7rem;
     cursor: pointer;
+}
+
+.auth_check_mark {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0.7rem;
+}
+
+.auth_check_mark.password_check {
+    top: 45%;
+    right: 2.75rem;
 }
 
 /* To remove the background color chrome adds to the input field when u use auto complete on an input element */
@@ -198,4 +217,17 @@ input:-webkit-autofill {
     top: 60%;
     left: 68%;
     transform: translate(-50%, -50%);
+}
+
+/* ======== Terms and condition ========= */
+.terms_n_condition {
+    max-width: 296px;
+    margin-inline: auto;
+    text-align: center;
+    line-height: 1rem;
+    font-size: var(--font_xsm);
+}
+
+.terms_n_condition a {
+    color: #27d5ec;
 }
