@@ -1,0 +1,201 @@
+.auth {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth_wrapper {
+    /* border: 1px solid red; */
+    max-width: var(--max_form_width);
+    width: 100%;
+    /* margin-inline: auto; */
+    background-color: var(--primary_white);
+    box-shadow: 0px 17px 46px rgba(92, 99, 107, 0.08);
+    border-radius: 24px;
+    padding: 2rem 2.3rem 6rem;
+    display: grid;
+    gap: 2rem;
+    font-weight: 400;
+}
+
+/* ========= Auth form head ======= */
+.auth_form_head {
+    /* border: 1px solid red; */
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.auth_form_head span {
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+}
+
+.auth_action.auth_active {
+    color: var(--secondary_text_color);
+}
+
+.auth_action.auth_active::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: -1rem;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ef498f;
+}
+
+.auth_action:not(.auth_action.auth_active):hover {
+    color: #ef498f;
+}
+
+.auth_close_icon {
+    margin-left: auto;
+    transition: var(--transition);
+}
+
+.auth_close_icon:hover {
+    transform: scale(1.09);
+}
+
+/* ======== Auth form links ====== */
+
+.auth_form_links {
+    /* border: 1px solid red; */
+    display: flex;
+    gap: 1.5rem;
+}
+
+.auth_form_links span {
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.auth_form_links span:hover {
+    transform: scale(1.09);
+}
+
+/* ======= alternative prompt ====== */
+.alternative_auth_prompt {
+    font-size: var(--font_sm);
+    color: var(--tertiary_text_color);
+}
+
+/* ========= Auth form ======== */
+.auth_form {
+    /* border: 1px solid red; */
+    display: grid;
+    gap: 1rem;
+    /* max-width: 414px; */
+}
+
+.auth_form_group {
+    /* border: 3px solid blue; */
+
+    display: grid;
+    gap: 0.5rem;
+}
+
+.auth_input_field {
+    width: 100%;
+    height: 56px;
+    position: relative;
+}
+
+.auth_input_field input {
+    width: 100%;
+    height: 100%;
+    color: var(--secondary_text_color);
+    padding-left: 1rem;
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+    background-color: var(--primary_white);
+}
+
+.auth_input_field input:focus {
+    outline: 2px solid var(--primary_purple);
+}
+
+.auth_input_field label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+}
+
+.auth_input_field input.touched {
+    padding-top: 1rem;
+}
+
+.auth_input_field input.touched + label {
+    font-size: var(--font_sm);
+    top: 25%;
+}
+
+.auth_error_msg {
+    color: red;
+    font-size: var(--font_sm);
+}
+
+.eye_icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0.7rem;
+    cursor: pointer;
+}
+
+/* To remove the background color chrome adds to the input field when u use auto complete on an input element */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset !important; /* Change 30px to whatever covers your input */
+    background-color: white !important;
+}
+
+.auth_form button {
+    height: 56px;
+    border-radius: 12px;
+    border: none;
+    color: var(--primary_white);
+    background-color: var(--primary_purple);
+    font-weight: 700;
+    font-size: var(--font_md);
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 1rem;
+}
+
+.auth_form button:hover {
+    transform: scale(1.02);
+}
+
+/* ====== Remember me ====== */
+.auth_remember {
+    display: flex;
+    gap: 0.3rem;
+    font-size: var(--font_sm);
+    align-items: center;
+}
+
+.auth_remember input {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    background: #ef498f1f;
+    border-radius: 4px;
+    position: relative;
+}
+
+.auth_remember input:checked:after {
+    content: url("../assets/icons/green_check_mark.svg");
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 60%;
+    left: 68%;
+    transform: translate(-50%, -50%);
+}
