@@ -1,5 +1,10 @@
 import React from "react";
 import "../styles/Customers.css";
+import customer1 from "../assets/icons/dashboard_icons/active_member_1.svg";
+import customer2 from "../assets/icons/dashboard_icons/active_member_2.svg";
+import customer3 from "../assets/icons/dashboard_icons/active_member_3.svg";
+import customer4 from "../assets/icons/dashboard_icons/active_member_4.svg";
+import customer5 from "../assets/icons/dashboard_icons/active_member_5.svg";
 
 const Customers = () => {
     return (
@@ -262,7 +267,23 @@ const Customers = () => {
                         <div className="section_info">
                             <div>Active Now</div>
                             <div>189</div>
-                            <div>to be decided</div>
+                            <div>
+                                <div className="active_customer_image one">
+                                    <img src={customer1} alt="" />
+                                </div>
+                                <div className="active_customer_image two">
+                                    <img src={customer2} alt="" />
+                                </div>
+                                <div className="active_customer_image three">
+                                    <img src={customer3} alt="" />
+                                </div>
+                                <div className="active_customer_image four">
+                                    <img src={customer4} alt="" />
+                                </div>
+                                <div className="active_customer_image five">
+                                    <img src={customer5} alt="" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

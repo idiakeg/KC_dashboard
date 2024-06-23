@@ -104,7 +104,7 @@
     margin-right: 0.2rem;
 }
 
-.total_members .section_info div:last-child span {
+.total_members .section_info > div:last-child span {
     color: #d0004b;
 }
 
@@ -115,6 +115,31 @@
 
 .total_active_customers {
     border: none;
+}
+
+.total_active_customers .section_info > div:last-child {
+    width: 114px;
+    height: 26px;
+}
+
+.total_active_customers .section_info div:last-child .two {
+    position: relative;
+    left: -8px;
+}
+
+.total_active_customers .section_info div:last-child .three {
+    position: relative;
+    left: -16px;
+}
+
+.total_active_customers .section_info div:last-child .four {
+    position: relative;
+    left: -24px;
+}
+
+.total_active_customers .section_info div:last-child .five {
+    position: relative;
+    left: -32px;
 }
 
 /* ===================== All Customers ================== */
