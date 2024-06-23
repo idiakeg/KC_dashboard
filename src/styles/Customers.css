@@ -237,6 +237,33 @@
     gap: 1%;
     padding-block: 1.875rem;
     border-bottom: 1px solid #eeeeee;
+    align-items: center;
+}
+
+.customer_list_container li span {
+    border-radius: 4px;
+    padding: 4px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.customer_list_container li span.online {
+    border: 1px solid #00b087;
+    color: #00b087;
+    background: #16c09861;
+}
+
+.customer_list_container li span.offline {
+    border: 1px solid #df0404;
+    color: #df0404;
+    background: #ffc5c5;
+}
+
+.customer_list_container li span.online {
+    border: 1px solid #00b087;
+    color: #00b087;
+    background: #16c09861;
 }
 
 .all_customers_pagination {

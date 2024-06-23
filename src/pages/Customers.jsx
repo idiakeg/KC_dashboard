@@ -7,6 +7,7 @@ import customer4 from "../assets/icons/dashboard_icons/active_member_4.svg";
 import customer5 from "../assets/icons/dashboard_icons/active_member_5.svg";
 import { auth, db } from "../components/Firebase";
 import { doc, getDoc } from "firebase/firestore";
+import { customers } from "../utils/constants";
 
 const Customers = () => {
     const [userDetails, setUserDetails] = useState();
@@ -374,30 +375,34 @@ const Customers = () => {
                             <span>Status</span>
                         </div>
                         <ul className="customer_list_container">
-                            <li>
-                                <span>Jane Cooper</span>
-                                <span>Microsoft</span>
-                                <span>(225) 555-0118</span>
-                                <span>jane@microsoft.com</span>
-                                <span>United States</span>
-                                <span>Active</span>
-                            </li>
-                            <li>
-                                <span>Jane Cooper</span>
-                                <span>Microsoft</span>
-                                <span>(225) 555-0118</span>
-                                <span>jane@microsoft.com</span>
-                                <span>United States</span>
-                                <span>Active</span>
-                            </li>
-                            <li>
-                                <span>Jane Cooper</span>
-                                <span>Microsoft</span>
-                                <span>(225) 555-0118</span>
-                                <span>jane@microsoft.com</span>
-                                <span>United States</span>
-                                <span>Active</span>
-                            </li>
+                            {customers.map(
+                                (
+                                    {
+                                        name,
+                                        company,
+                                        phone,
+                                        email,
+                                        country,
+                                        isActive,
+                                    },
+                                    index
+                                ) => (
+                                    <li key={index}>
+                                        <span>{name}</span>
+                                        <span>{company}</span>
+                                        <span>{phone}</span>
+                                        <span>{email}</span>
+                                        <span>{country}</span>
+                                        <span
+                                            className={`${
+                                                isActive ? "online" : "offline"
+                                            }`}
+                                        >
+                                            {isActive ? "Active" : "Inactive"}
+                                        </span>
+                                    </li>
+                                )
+                            )}
                         </ul>
                     </div>
                     <div className="all_customers_pagination">
