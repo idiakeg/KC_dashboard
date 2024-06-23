@@ -1,17 +1,38 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import "../styles/Customers.css";
 import customer1 from "../assets/icons/dashboard_icons/active_member_1.svg";
 import customer2 from "../assets/icons/dashboard_icons/active_member_2.svg";
 import customer3 from "../assets/icons/dashboard_icons/active_member_3.svg";
 import customer4 from "../assets/icons/dashboard_icons/active_member_4.svg";
 import customer5 from "../assets/icons/dashboard_icons/active_member_5.svg";
+import { auth, db } from "../components/Firebase";
+import { doc, getDoc } from "firebase/firestore";
 
 const Customers = () => {
+    const [userDetails, setUserDetails] = useState();
+
+    const getUserData = async () => {
+        auth.onAuthStateChanged(async (user) => {
+            console.log(user);
+            const docRef = doc(db, "Users", user.uid);
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+                setUserDetails(docSnap.data());
+                console.log("customer: ", docSnap.data());
+            } else {
+                console.log("user not logged in.");
+            }
+        });
+    };
+
+    useEffect(() => {
+        getUserData();
+    }, []);
     return (
         <div className="customer_dashboard">
             <div className="customer_container">
                 <div className="customer_head">
-                    <span>Hello Evano 👋🏼,</span>
+                    <span>Hello {userDetails?.fullname.split(" ")[0]} 👋🏼,</span>
                     <div className="customer_search_container">
                         <svg
                             width="24"

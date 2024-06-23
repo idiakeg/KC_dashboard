@@ -3,6 +3,8 @@ import * as Yup from "yup";
 import "../styles/Auth.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./Firebase";
 
 let initialValues = {
     password: "",
@@ -18,10 +20,6 @@ const validationSchema = Yup.object().shape({
         .required("Email is required."),
 });
 
-const submitForm = () => {
-    console.log("form submitted.");
-};
-
 const Login = () => {
     const navigate = useNavigate();
     const [clicked, setClicked] = useState({
@@ -29,6 +27,20 @@ const Login = () => {
         password: false,
     });
     const [showPassword, setShowPassword] = useState(false);
+
+    const submitForm = async (values) => {
+        try {
+            await signInWithEmailAndPassword(
+                auth,
+                values?.email,
+                values?.password
+            );
+            console.log("successful user login");
+            navigate("/dashboard");
+        } catch (error) {
+            console.log(error);
+        }
+    };
     return (
         <div className="auth">
             <div className="auth_wrapper">

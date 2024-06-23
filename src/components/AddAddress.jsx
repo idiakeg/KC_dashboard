@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "./Firebase";
+import { setDoc, doc } from "firebase/firestore";
 
 let initialValues = {
     street_address: "",
@@ -17,7 +20,7 @@ const validationSchema = Yup.object().shape({
     zip_code: Yup.number().required("Zip code is required."),
 });
 
-const AddAddress = ({ submitForm }) => {
+const AddAddress = ({ step, setStep }) => {
     const [clicked, setClicked] = useState({
         street_address: false,
         apartment: false,
@@ -25,8 +28,44 @@ const AddAddress = ({ submitForm }) => {
         state: false,
         zip_code: false,
     });
+
+    const handleFirebaseSignin = async (values) => {
+        let data = JSON.parse(localStorage.getItem("user_info")) || {};
+        localStorage.setItem(
+            "user_info",
+            JSON.stringify({ ...data, ...values })
+        );
+
+        const { email, password } = JSON.parse(
+            localStorage.getItem("user_info")
+        );
+
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+            const user = auth.currentUser;
+            if (user) {
+                await setDoc(doc(db, "Users", user.uid), {
+                    email: user.email,
+                    apartment: data?.apartment,
+                    city: data?.city,
+                    fullname: data?.fullname,
+                    gender: data?.gender,
+                    phone_number: data?.phone_number,
+                    state: data?.state,
+                    zip_code: data?.zip_code,
+                });
+                // do this if sign up successful
+                setStep(4);
+            }
+            console.log(user);
+            console.log("registration successful.");
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
-        <div className="auth_wrapper register">
+        <div className="auth_wrapper register step">
             <div className="auth_form_head">
                 <div className="auth_personal_information address">
                     Add address
@@ -53,7 +92,7 @@ const AddAddress = ({ submitForm }) => {
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
-                onSubmit={submitForm}
+                onSubmit={handleFirebaseSignin}
             >
                 {({
                     values,

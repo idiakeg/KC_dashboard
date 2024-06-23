@@ -41,9 +41,6 @@ const Register = () => {
         if (step < 4) {
             setStep((prev) => prev + 1);
         }
-        if (step > 3) {
-            console.log(JSON.parse(data));
-        }
     };
     return (
         <div className="auth">
@@ -311,7 +308,7 @@ const Register = () => {
             ) : step === 2 ? (
                 <RegisterStep2 submitForm={submitForm} />
             ) : step === 3 ? (
-                <RegisterStep3 submitForm={submitForm} />
+                <RegisterStep3 step={step} setStep={setStep} />
             ) : (
                 <RegisterSuccess />
             )}

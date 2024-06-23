@@ -1,7 +1,9 @@
 import { Link, Outlet } from "react-router-dom";
 import "../styles/Dashbaord.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import user_image from "../assets/icons/user_image.svg";
+import { auth, db } from "../components/Firebase";
+import { doc, getDoc } from "firebase/firestore";
 
 const Dashboard = () => {
     const [activeStates, setActiveStates] = useState({
@@ -11,6 +13,8 @@ const Dashboard = () => {
         promote: false,
         help: false,
     });
+
+    const [userDetails, setUserDetails] = useState();
 
     const handleActiveState = (option) => {
         let newActiveState = {
@@ -23,6 +27,23 @@ const Dashboard = () => {
 
         setActiveStates(newActiveState);
     };
+
+    const getUserData = async () => {
+        auth.onAuthStateChanged(async (user) => {
+            console.log(user);
+            const docRef = doc(db, "Users", user.uid);
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+                setUserDetails(docSnap.data());
+            } else {
+                console.log("user not logged in.");
+            }
+        });
+    };
+
+    useEffect(() => {
+        getUserData();
+    }, []);
 
     return (
         <div className="dashboard">
@@ -366,7 +387,9 @@ const Dashboard = () => {
                             <img src={user_image} alt="user" />
                         </div>
                         <div className="user_details">
-                            <span className="user_name">Evano</span>
+                            <span className="user_name">
+                                {userDetails?.fullname.split(" ")[0]}
+                            </span>
                             <span className="user_position">
                                 Project Manager
                             </span>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../styles/Register3.css";
 import AddAddress from "./AddAddress";
 
-const RegisterStep3 = ({ submitForm }) => {
+const RegisterStep3 = ({ step, setStep }) => {
     const [manualAddress, setManualAddress] = useState(false);
     return (
         <>
@@ -183,7 +183,7 @@ const RegisterStep3 = ({ submitForm }) => {
                     </div>
                 </div>
             ) : (
-                <AddAddress submitForm={submitForm} />
+                <AddAddress step={step} setStep={setStep} />
             )}
         </>
     );
