@@ -1,5 +1,5 @@
 .dashboard {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: grid;
     grid-template-columns: 25% 75%;
     min-height: 100vh;
@@ -9,7 +9,7 @@
 }
 
 .dashboard > * {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 
 .dashboard_sidebar_container {
