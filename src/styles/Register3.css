@@ -1,0 +1,108 @@
+/* ================= Register step 3 ================== */
+
+.auth_personal_information.address {
+    width: 179px;
+}
+
+.address_search_container {
+    height: 56px;
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    gap: 0.7rem;
+    align-items: center;
+}
+
+.address_search_container input {
+    font-size: var(--font_md);
+    width: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: var(--primary_text_color);
+}
+
+.address_search_container input:focus {
+    outline: none;
+}
+
+.helper_address_div span {
+    line-height: 20px;
+    font-size: var(--font_sm);
+}
+
+.address_option {
+    /* border: 1px solid red; */
+    width: 70%;
+    font-weight: 700;
+    line-height: 20px;
+    font-size: var(--font_sm);
+    color: var(--primary_purple);
+    display: flex;
+    gap: 0.7rem;
+}
+
+.address_option > div {
+    height: 32px;
+    border: 1px solid #ef498f47;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.current_location {
+    gap: 0.3rem;
+}
+
+.address_sharing_policy {
+    width: 68%;
+    display: grid;
+    gap: 1rem;
+    margin-top: 4.5rem;
+    margin-bottom: 1rem;
+}
+
+.address_sharing_policy > div {
+    font-weight: 700;
+    font-size: var(--font-20);
+    line-height: 28px;
+    color: var(--secondary_text_color);
+}
+
+.address_reasons {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 0.9375rem; /* 15px */
+    line-height: 24px;
+    display: grid;
+    gap: 1rem;
+}
+
+.address_reasons li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ==================== Manual Address ============= */
+.optional.address {
+    right: 1rem;
+    color: var(--tertiary_text_color);
+}
+
+.two_input {
+    display: flex;
+    gap: 1rem;
+}
+
+.two_input > div {
+    flex-grow: 1;
+}
+
+.auth_form button.address_btn {
+    margin-top: 3rem;
+}

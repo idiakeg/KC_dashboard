@@ -14,6 +14,8 @@
     --dashboard_bg_color: #fafbff;
     --dashboard_bg_color_2: #f9fbff;
     --user_position_color: #757575;
+    --primary_green: #6bc62d;
+    --custom_input_bg_color: #ef498f1f;
 
     --max_form_width: 502px;
 
@@ -23,6 +25,7 @@
     --font_sm: 0.8125rem; /* 13px */
     --font_ssm: 0.875rem; /* 14px */
     --font_md: 1rem;
+    --font-20: 1.25rem;
     --font_xmd: 1.5rem; /* 24px */
     --font_lg: 1.625rem; /* 26px */
 

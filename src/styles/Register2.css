@@ -1,0 +1,131 @@
+/* ================= Register step 2 ================== */
+.auth_personal_information {
+    /* border: 1px solid red; */
+    width: 261px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: var(--font-20);
+    color: var(--secondary_text_color);
+    align-items: flex-end;
+}
+
+.auth_personal_information span {
+    color: var(--primary_green);
+    font-size: var(--font_md);
+}
+
+.auth_gender {
+    /* border: 1px solid red; */
+    display: flex;
+    gap: 14px;
+    line-height: 24px;
+}
+
+.gender_options {
+    display: flex;
+    gap: 10px;
+}
+
+.gender_options label {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.gender_options label input {
+    cursor: pointer;
+    margin: 0;
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    background: var(--custom_input_bg_color);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.gender_options label input:checked:after {
+    content: url("../assets/icons/radio_btn_checked.svg");
+    display: inline-block;
+    position: absolute;
+    inset: 0;
+    background-color: green;
+}
+
+.disclaimer {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    line-height: 30px;
+    font-weight: 700;
+    font-size: var(--font_sm);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.phone_number {
+    /* border: 1px solid red; */
+    display: flex;
+    gap: 0.7rem;
+}
+
+.phone_number .auth_form_group {
+    flex-grow: 1;
+}
+
+.phone_number .country_code {
+    padding: 0 12px;
+    border: 1px solid #dddddd;
+    height: 56px;
+    width: 102px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    line-height: 24px;
+}
+
+.phone_number .country_code svg {
+    margin-left: auto;
+}
+
+/* ===== TO remove the default dd/mm/yyyy place holders in date inputs ====== */
+input[type="date"]:in-range::-webkit-datetime-edit-year-field,
+input[type="date"]:in-range::-webkit-datetime-edit-month-field,
+input[type="date"]:in-range::-webkit-datetime-edit-day-field,
+input[type="date"]:in-range::-webkit-datetime-edit-text {
+    color: transparent;
+}
+
+input[type="date"] {
+    padding-right: 13px;
+    padding-top: 6px;
+}
+
+.optional {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 40px;
+}
+
+.gift_giving {
+    font-size: var(--font_sm);
+    line-height: 20px;
+}
+
+.birthday_container {
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+}
+
+.auth_wrapper.step {
+    padding-bottom: 3rem;
+}
