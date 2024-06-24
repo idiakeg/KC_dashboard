@@ -126,11 +126,17 @@
     transition: all 0.15s ease-in-out;
 }
 
-.auth_input_field input.touched {
+.auth_input_field input.touched,
+.auth_input_field input:focus {
     padding-top: 1rem;
 }
 
 .auth_input_field input.touched + label {
+    font-size: var(--font_sm);
+    top: 25%;
+}
+
+.auth_input_field input:focus + label {
     font-size: var(--font_sm);
     top: 25%;
 }
