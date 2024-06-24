@@ -215,3 +215,16 @@
         display: none;
     }
 }
+
+@media screen and (max-width: 780px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard_sidebar_container {
+        border: 1px solid red;
+        /* width: 102px; */
+        align-items: center;
+        display: none;
+    }
+}
