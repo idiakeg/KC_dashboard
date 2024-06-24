@@ -359,12 +359,29 @@
 
 @media screen and (max-width: 1060px) {
     .all_customers {
-        /* border: 1px solid red; */
-        overflow-x: auto;
-        /* min-width: 1050px; */
+        width: 1050px;
     }
 
     .customer_dashboard {
         padding: 3rem 1rem;
+    }
+
+    .responsive_helper {
+        overflow-x: auto;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .customer_search_container {
+        width: 180px;
+    }
+
+    .customer_search_container input {
+        width: 80%;
+    }
+
+    .customer_head span {
+        line-height: 26px;
+        font-size: var(--font_md);
     }
 }

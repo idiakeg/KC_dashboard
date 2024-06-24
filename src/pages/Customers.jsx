@@ -309,141 +309,147 @@ const Customers = () => {
                         </div>
                     </div>
                 </div>
-                <div className="all_customers">
-                    <div className="all_customers_head">
-                        <div className="left">
-                            <div>All Customers</div>
-                            <div>Active Members</div>
-                        </div>
-                        <div className="right">
-                            <div className="customer_search_container">
-                                <svg
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-                                        stroke="#7E7E7E"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                    <path
-                                        d="M20.9999 21L16.6499 16.65"
-                                        stroke="#7E7E7E"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-                                <input
-                                    className="pointer"
-                                    type="text"
-                                    placeholder="Search"
-                                />
+                <div className="responsive_helper">
+                    <div className="all_customers">
+                        <div className="all_customers_head">
+                            <div className="left">
+                                <div>All Customers</div>
+                                <div>Active Members</div>
                             </div>
-                            <div className="sortby_container">
-                                sort by: <span>Newest</span>
-                                <svg
-                                    width="18"
-                                    height="18"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M6 9L12 15L18 9"
-                                        stroke="#757575"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
+                            <div className="right">
+                                <div className="customer_search_container">
+                                    <svg
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                                            stroke="#7E7E7E"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                        <path
+                                            d="M20.9999 21L16.6499 16.65"
+                                            stroke="#7E7E7E"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </svg>
+                                    <input
+                                        className="pointer"
+                                        type="text"
+                                        placeholder="Search"
                                     />
-                                </svg>
+                                </div>
+                                <div className="sortby_container">
+                                    sort by: <span>Newest</span>
+                                    <svg
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M6 9L12 15L18 9"
+                                            stroke="#757575"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </svg>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="customers_list">
-                        <div className="list_head">
-                            <span>Customer Name</span>
-                            <span>Company</span>
-                            <span>Phone Number</span>
-                            <span>Email</span>
-                            <span>Country</span>
-                            <span>Status</span>
+                        <div className="customers_list">
+                            <div className="list_head">
+                                <span>Customer Name</span>
+                                <span>Company</span>
+                                <span>Phone Number</span>
+                                <span>Email</span>
+                                <span>Country</span>
+                                <span>Status</span>
+                            </div>
+                            <ul className="customer_list_container">
+                                {customers.map(
+                                    (
+                                        {
+                                            name,
+                                            company,
+                                            phone,
+                                            email,
+                                            country,
+                                            isActive,
+                                        },
+                                        index
+                                    ) => (
+                                        <li key={index}>
+                                            <span>{name}</span>
+                                            <span>{company}</span>
+                                            <span>{phone}</span>
+                                            <span>{email}</span>
+                                            <span>{country}</span>
+                                            <span
+                                                className={`${
+                                                    isActive
+                                                        ? "online"
+                                                        : "offline"
+                                                }`}
+                                            >
+                                                {isActive
+                                                    ? "Active"
+                                                    : "Inactive"}
+                                            </span>
+                                        </li>
+                                    )
+                                )}
+                            </ul>
                         </div>
-                        <ul className="customer_list_container">
-                            {customers.map(
-                                (
-                                    {
-                                        name,
-                                        company,
-                                        phone,
-                                        email,
-                                        country,
-                                        isActive,
-                                    },
-                                    index
-                                ) => (
-                                    <li key={index}>
-                                        <span>{name}</span>
-                                        <span>{company}</span>
-                                        <span>{phone}</span>
-                                        <span>{email}</span>
-                                        <span>{country}</span>
-                                        <span
-                                            className={`${
-                                                isActive ? "online" : "offline"
-                                            }`}
-                                        >
-                                            {isActive ? "Active" : "Inactive"}
-                                        </span>
-                                    </li>
-                                )
-                            )}
-                        </ul>
-                    </div>
-                    <div className="all_customers_pagination">
-                        <div className="left">
-                            Showing data 1 to 8 of 256K entries
-                        </div>
-                        <div className="right">
-                            <span>
-                                <svg
-                                    width="5"
-                                    height="7"
-                                    viewBox="0 0 5 7"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M2.936 6.392L0.176 3.668L2.936 0.944H4.664L1.892 3.668L4.664 6.392H2.936Z"
-                                        fill="#404B52"
-                                    />
-                                </svg>
-                            </span>
-                            <span className="active">1</span>
-                            <span>2</span>
-                            <span>3</span>
-                            <span>4</span>
-                            <span className="dot_dot">...</span>
-                            <span>40</span>
-                            <span>
-                                <svg
-                                    width="5"
-                                    height="7"
-                                    viewBox="0 0 5 7"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M0.344 0.944H2.072L4.832 3.668L2.072 6.392H0.344L3.116 3.668L0.344 0.944Z"
-                                        fill="#404B52"
-                                    />
-                                </svg>
-                            </span>
+                        <div className="all_customers_pagination">
+                            <div className="left">
+                                Showing data 1 to 8 of 256K entries
+                            </div>
+                            <div className="right">
+                                <span>
+                                    <svg
+                                        width="5"
+                                        height="7"
+                                        viewBox="0 0 5 7"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M2.936 6.392L0.176 3.668L2.936 0.944H4.664L1.892 3.668L4.664 6.392H2.936Z"
+                                            fill="#404B52"
+                                        />
+                                    </svg>
+                                </span>
+                                <span className="active">1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span className="dot_dot">...</span>
+                                <span>40</span>
+                                <span>
+                                    <svg
+                                        width="5"
+                                        height="7"
+                                        viewBox="0 0 5 7"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M0.344 0.944H2.072L4.832 3.668L2.072 6.392H0.344L3.116 3.668L0.344 0.944Z"
+                                            fill="#404B52"
+                                        />
+                                    </svg>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
