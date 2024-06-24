@@ -33,7 +33,6 @@
 }
 
 .address_option {
-    /* border: 1px solid red; */
     width: 70%;
     font-weight: 700;
     line-height: 20px;
@@ -105,4 +104,14 @@
 
 .auth_form button.address_btn {
     margin-top: 3rem;
+}
+
+@media screen and (max-width: 600px) {
+    .address_option {
+        width: 100%;
+    }
+
+    .address_sharing_policy {
+        width: 100%;
+    }
 }

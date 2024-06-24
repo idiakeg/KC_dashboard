@@ -53,3 +53,26 @@
 .success_helper_div button:hover {
     transform: scale(1.02);
 }
+
+@media screen and (max-width: 600px) {
+    .auth_success_wrapper {
+        width: 90%;
+    }
+
+    .success_bg {
+        background-position: center;
+        background-size: cover;
+    }
+
+    .msg {
+        font-size: 2rem;
+        line-height: 38px;
+        color: var(--secondary_text_color);
+        text-align: center;
+    }
+
+    .success_bg,
+    .auth_success_wrapper .success_helper_div {
+        padding-inline: 1rem;
+    }
+}
