@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./Firebase";
+import toast from "react-hot-toast";
+import Loading from "./Loading";
 
 let initialValues = {
     password: "",
@@ -27,18 +29,23 @@ const Login = () => {
         password: false,
     });
     const [showPassword, setShowPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const submitForm = async (values) => {
         try {
+            setIsLoading(true);
             await signInWithEmailAndPassword(
                 auth,
                 values?.email,
                 values?.password
             );
             console.log("successful user login");
+            setIsLoading(false);
             navigate("/dashboard");
         } catch (error) {
+            setIsLoading(false);
             console.log(error);
+            toast.error(error.message);
         }
     };
     return (
@@ -255,6 +262,7 @@ const Login = () => {
                     </label>
                 </span>
             </div>
+            {isLoading && <Loading />}
         </div>
     );
 };

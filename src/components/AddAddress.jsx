@@ -4,6 +4,8 @@ import * as Yup from "yup";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "./Firebase";
 import { setDoc, doc } from "firebase/firestore";
+import toast from "react-hot-toast";
+import Loading from "./Loading";
 
 let initialValues = {
     street_address: "",
@@ -29,6 +31,8 @@ const AddAddress = ({ step, setStep }) => {
         zip_code: false,
     });
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const handleFirebaseSignin = async (values) => {
         let data = JSON.parse(localStorage.getItem("user_info")) || {};
         localStorage.setItem(
@@ -41,6 +45,7 @@ const AddAddress = ({ step, setStep }) => {
         );
 
         try {
+            setIsLoading(true);
             await createUserWithEmailAndPassword(auth, email, password);
             const user = auth.currentUser;
             if (user) {
@@ -54,13 +59,15 @@ const AddAddress = ({ step, setStep }) => {
                     state: data?.state,
                     zip_code: data?.zip_code,
                 });
+
+                setIsLoading(false);
                 // do this if sign up successful
                 setStep(4);
             }
-            console.log(user);
-            console.log("registration successful.");
         } catch (error) {
+            setIsLoading(false);
             console.log(error);
+            toast.error(error.message);
         }
     };
 
@@ -271,6 +278,7 @@ const AddAddress = ({ step, setStep }) => {
                     </form>
                 )}
             </Formik>
+            {isLoading && <Loading />}
         </div>
     );
 };

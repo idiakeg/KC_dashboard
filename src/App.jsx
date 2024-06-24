@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Customers from "./pages/Customers";
+import { Toaster } from "react-hot-toast";
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                     <Route index element={<Customers />} />
                 </Route>
             </Routes>
+            <Toaster position="top-right" />
         </BrowserRouter>
     );
 }

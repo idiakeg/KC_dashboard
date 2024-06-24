@@ -382,8 +382,8 @@
     .total_active_customers > svg {
         /* border-right: none; */
         /* border: 1px solid red; */
-        width: 60px;
-        height: 60px;
+        width: 65px;
+        height: 65px;
     }
 
     .section_info div:nth-child(2) {
