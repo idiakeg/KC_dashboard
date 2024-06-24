@@ -221,11 +221,12 @@ input:-webkit-autofill {
 
 /* ======== Terms and condition ========= */
 .terms_n_condition {
-    max-width: 296px;
+    max-width: 256px;
     margin-inline: auto;
     text-align: center;
     line-height: 1rem;
     font-size: var(--font_xsm);
+    color: #1a071066;
 }
 
 .terms_n_condition a {

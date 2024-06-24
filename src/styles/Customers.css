@@ -15,6 +15,7 @@
     justify-content: space-between;
     align-items: center;
     font-weight: 400;
+    max-width: 968px;
 }
 
 .customer_head span {
@@ -140,6 +141,7 @@
 .total_active_customers .section_info div:last-child .five {
     position: relative;
     left: -32px;
+    top: -2px;
 }
 
 /* ===================== All Customers ================== */
@@ -243,21 +245,27 @@
 .customer_list_container li span {
     border-radius: 4px;
     padding: 4px 0;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .customer_list_container li span.online {
     border: 1px solid #00b087;
     color: #00b087;
     background: #16c09861;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .customer_list_container li span.offline {
     border: 1px solid #df0404;
     color: #df0404;
     background: #ffc5c5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .customer_list_container li span.online {
@@ -314,4 +322,49 @@
     border: 1px solid #5932ea;
     background: #5932ea;
     color: var(--primary_white);
+}
+
+@media screen and (max-width: 990px) {
+    .customer_summary {
+        /* border: 1px solid red; */
+        grid-template-columns: 1fr;
+    }
+
+    .total_members,
+    .total_active_customers {
+        justify-content: flex-start;
+    }
+
+    .total_customers {
+        padding-bottom: 1.5rem;
+    }
+
+    .total_active_customers {
+        padding-top: 1.5rem;
+    }
+
+    .total_members {
+        border-bottom: 1px solid #f0f0f0;
+        border-top: 1px solid #f0f0f0;
+        padding-block: 1.5rem;
+    }
+
+    .total_customers,
+    .total_members,
+    .total_active_customers {
+        border-right: none;
+        /* border-bottom: 1px solid #f0f0f0; */
+    }
+}
+
+@media screen and (max-width: 1060px) {
+    .all_customers {
+        /* border: 1px solid red; */
+        overflow-x: auto;
+        /* min-width: 1050px; */
+    }
+
+    .customer_dashboard {
+        padding: 3rem 1rem;
+    }
 }

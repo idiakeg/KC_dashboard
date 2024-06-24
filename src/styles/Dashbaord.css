@@ -6,6 +6,8 @@
     box-shadow: 0px 10px 60px 0px #e2ecf980;
     background-color: var(--primary_white);
     font-family: "Poppins", sans-serif;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .dashboard > * {
@@ -16,6 +18,7 @@
     padding: 3rem 2rem 4rem 2rem;
     display: flex;
     flex-direction: column;
+    max-width: 340px;
 }
 
 .dashboard_title_icons {
@@ -188,4 +191,27 @@
 .footer_user_info svg {
     margin-left: auto;
     cursor: pointer;
+}
+
+/* =================== Media Query =============== */
+@media screen and (max-width: 1170px) {
+    .dashboard {
+        grid-template-columns: 102px 1fr;
+    }
+
+    .dashboard_sidebar_container {
+        /* border: 1px solid red; */
+        /* width: 102px; */
+        align-items: center;
+    }
+
+    .dashboard_head_aside,
+    .solo_desc span,
+    .sidebar_links_container a span,
+    .sidebar_links_container a span + svg,
+    .pro_upgrade,
+    .footer_user_info .user_details,
+    .footer_user_info > svg {
+        display: none;
+    }
 }
