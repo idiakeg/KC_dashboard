@@ -158,7 +158,7 @@ const RegisterStep2 = ({ submitForm }) => {
                             you
                         </div>
                         <div className="phone_number">
-                            <span className="country_code">
+                            {/* <span className="country_code">
                                 + 598
                                 <svg
                                     width="24"
@@ -175,6 +175,17 @@ const RegisterStep2 = ({ submitForm }) => {
                                         stroke-linejoin="round"
                                     />
                                 </svg>
+                            </span> */}
+                            <span className="country_code">
+                                <select name="country_code" id="">
+                                    <option value="Nigeria">+ 234</option>
+                                    <option value="Rwanda">+ 250</option>
+                                    <option value="Ethiopia">+ 251</option>
+                                    <option value="Niger">+ 227</option>
+                                    <option value="Ghana">+ 233</option>
+                                    <option value="South Africa">+ 27</option>
+                                    <option value="Mauritius">+ 230</option>
+                                </select>
                             </span>
                             <div className="auth_form_group">
                                 <div className="auth_input_field">
