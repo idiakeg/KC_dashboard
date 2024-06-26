@@ -272,7 +272,7 @@
 
     .hamburger.close {
         /* top: 0.5rem; */
-        left: 2.375rem;
+        left: 2.6875rem;
     }
 
     .dashboard_sidebar_container.open {
@@ -285,6 +285,10 @@
 
     .sidebar_links_container li:not(.active_sidebar):not(.solo_desc):hover {
         padding-left: 13px;
+    }
+
+    .dashboard_head {
+        justify-content: center;
     }
 
     .hamburger {
