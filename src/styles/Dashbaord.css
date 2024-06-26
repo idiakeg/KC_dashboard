@@ -284,6 +284,8 @@
         backdrop-filter: blur(25px);
         box-shadow: 10px 7px 50px #36393e14;
         padding-top: 4rem;
+        max-height: 100vh;
+        overflow: auto;
     }
 
     .sidebar_links_container li:not(.active_sidebar):not(.solo_desc):hover {
