@@ -390,11 +390,23 @@
         font-size: 1.3rem;
         line-height: 12px;
     }
+
+    .total_active_customers .section_info div:last-child .one,
+    .total_active_customers .section_info div:last-child .three,
+    .total_active_customers .section_info div:last-child .four {
+        position: relative;
+        top: 2px;
+    }
+
+    .total_active_customers .section_info div:last-child .five {
+        position: relative;
+        top: 0px;
+    }
 }
 
 @media screen and (max-width: 540px) {
     .customer_search_container {
-        width: 180px;
+        width: 150px;
     }
 
     .customer_search_container input {

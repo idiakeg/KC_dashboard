@@ -15,6 +15,7 @@ const Dashboard = () => {
     });
 
     const [userDetails, setUserDetails] = useState();
+    const [hamburgerToggle, setHamburgerToggle] = useState(false);
 
     const handleActiveState = (option) => {
         let newActiveState = {
@@ -47,7 +48,11 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard">
-            <div className="dashboard_sidebar_container">
+            <div
+                className={`dashboard_sidebar_container ${
+                    hamburgerToggle ? "open" : ""
+                }`}
+            >
                 <div className="dashboard_head">
                     <svg
                         width="37"
@@ -413,6 +418,14 @@ const Dashboard = () => {
                 </div>
             </div>
             <Outlet />
+            <span
+                onClick={() => setHamburgerToggle((prev) => !prev)}
+                className={`hamburger ${hamburgerToggle ? "close" : ""}`}
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
         </div>
     );
 };
