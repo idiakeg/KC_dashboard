@@ -207,6 +207,9 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    background-color: var(--primary_purple);
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .hamburger span {
@@ -272,7 +275,7 @@
 
     .hamburger.close {
         /* top: 0.5rem; */
-        left: 2.6875rem;
+        left: 2.375rem;
     }
 
     .dashboard_sidebar_container.open {
